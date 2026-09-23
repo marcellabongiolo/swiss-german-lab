@@ -1,36 +1,89 @@
-<div align="center">
+# 🇨🇭 Swiss German Lab
 
-# 🇨🇭 SWISS GERMAN LAB 🏔️
+Um pequeno laboratório em Python para explorar vocabulário associado ao **alemão suíço (Schweizerdeutsch)** e comparar exemplos com o alemão padrão.
 
-<img src="https://img.shields.io/badge/FOCUS-SCHWIIZERTÜTSCH_%26_CULTURE-red?style=for-the-badge" />
-<img src="https://img.shields.io/badge/LANGUAGE-PYTHON-yellow?style=for-the-badge&logo=python&logoColor=black" />
-<img src="https://img.shields.io/badge/STATUS-ACTIVE-success?style=for-the-badge" />
+> Projeto educacional de programação e exploração linguística. O alemão suíço reúne diferentes variedades regionais, portanto as formas apresentadas aqui são exemplos e não representam uma única forma universal de falar.
 
-> *“Bridging standard German and Swiss regional dialects through clean code.”*
+## 🎯 Objetivos
 
-</div>
+- praticar Python com um projeto temático;
+- organizar dados de vocabulário em estruturas reutilizáveis;
+- implementar consultas e validações simples;
+- escrever testes automatizados;
+- manter uma estrutura de projeto adequada para portfólio.
 
----
+## ✨ Funcionalidades
 
-## 🔬 About This Repository
+- comparação de termos do alemão padrão com exemplos em alemão suíço;
+- indicação de contexto de uso;
+- tratamento de termos desconhecidos;
+- validação de entradas vazias;
+- demonstração executável pelo terminal;
+- testes com `unittest`;
+- GitHub Actions para execução automática dos testes.
 
-Welcome to my **swiss-german-lab**! This repository explores the unique aspects of Swiss German (*Schwiizertütsch*), mapping regional vocabulary differences compared to Standard German (*Hochdeutsch*).
+## ▶️ Como executar
 
-### 📂 What You Will Find Here:
-* **Dialect Mapping:** Translating standard terms into Swiss expressions.
-* **Cultural Insights:** Key vocabulary used daily in Zürich and across Switzerland.
-* **Modular Python Scripts:** Clean and reusable code structures.
+```bash
+git clone https://github.com/marcellabongiolo/swiss-german-lab.git
+cd swiss-german-lab
+python tradutor_suico.py
+```
 
----
+Execute os testes:
 
-## 👩‍💻 Author
+```bash
+python -m unittest discover -s tests -v
+```
 
-<div align="center">
+O projeto não possui dependências externas.
 
-**Marcella Bongiolo**  
-*Future Software Engineer | UNESC Student*
+## 📁 Estrutura
 
-[![GitHub Badge](https://img.shields.io/badge/GitHub-marcellabongiolo-181717?style=flat-square&logo=github)](https://github.com/marcellabongiolo)
-[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-marcellabongiolo-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/marcellabongiolo)
+```text
+swiss-german-lab/
+├── .github/
+│   └── workflows/
+│       └── tests.yml
+├── tests/
+│   └── test_tradutor_suico.py
+├── .gitignore
+├── LICENSE
+├── README.md
+└── tradutor_suico.py
+```
 
-</div>
+## 🧠 Conceitos praticados
+
+- Python;
+- dicionários e estruturas de dados;
+- classes e métodos;
+- type hints;
+- validação de entrada;
+- tratamento de exceções;
+- testes automatizados;
+- organização de código;
+- GitHub Actions.
+
+## 🔎 Observação linguística
+
+O termo **Schweizerdeutsch** normalmente se refere a um conjunto de variedades de alemão faladas na Suíça, com diferenças regionais de vocabulário, pronúncia e escrita. Por isso, este laboratório deve ser entendido como uma coleção de exemplos para estudo, e não como um tradutor completo de todos os dialetos suíço-alemães.
+
+## 🚀 Próximos passos possíveis
+
+- ampliar o banco de vocabulário;
+- separar dados linguísticos da lógica da aplicação;
+- adicionar busca sem diferenciar maiúsculas e minúsculas;
+- incluir categorias e regiões quando houver fonte adequada;
+- criar uma interface simples para consultas.
+
+## 👩‍💻 Autora
+
+**Marcella Bongiolo**
+
+- GitHub: https://github.com/marcellabongiolo
+- LinkedIn: https://linkedin.com/in/marcellabongiolo
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
