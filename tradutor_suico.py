@@ -1,67 +1,74 @@
+"""Comparador de vocabulário entre alemão padrão e suíço-alemão.
+
+O projeto é educacional e apresenta exemplos de vocabulário associados ao
+alemão suíço. As formas podem variar entre regiões e dialetos.
 """
-Módulo: Tradutor e Comparador de Vocabulário Suíço-Alemão
-Autor: Marcella Bongiolo
-Descrição: Script que compara termos do Alemão Padrão (Hochdeutsch) 
-           com suas equivalências no Suíço-Alemão (Schwiizertütsch).
-"""
+
+VOCABULARIO = {
+    "Guten Tag": {
+        "suico": "Grüezi",
+        "uso": "Cumprimento comum/formal",
+    },
+    "Kartoffel": {
+        "suico": "Härdöpfel",
+        "uso": "Batata",
+    },
+    "Mädchen": {
+        "suico": "Meitschi",
+        "uso": "Menina / garota",
+    },
+    "Parkplatz": {
+        "suico": "Parkplatz",
+        "uso": "Estacionamento",
+    },
+    "Samstag": {
+        "suico": "Samschtig",
+        "uso": "Sábado",
+    },
+}
+
 
 class ComparadorDialetoSuico:
-    """Gerencia um dicionário de tradução entre o alemão padrão e o suíço-alemão."""
-    def __init__(self):
-        self.dicionario = {
-            "Guten Tag": {
-                "suico": "Grüezi (Zürich / Região Central)",
-                "uso": "Cumprimento formal/geral"
-            },
-            "Kartoffel": {
-                "suico": "Härdöpfel",
-                "uso": "Batata"
-            },
-            "Mädchen": {
-                "suico": "Meitschi",
-                "uso": "Menina / Garota"
-            },
-            "Parkplatz": {
-                "suico": "Parkplatz (mas usam muito 'Autopark')",
-                "uso": "Estacionamento"
-            },
-            "Samstag": {
-                "suico": "Samschtig",
-                "uso": "Sábado"
-            }
-        }
+    """Consulta exemplos de vocabulário em alemão suíço."""
+
+    def __init__(self, dicionario=None):
+        self.dicionario = dicionario if dicionario is not None else VOCABULARIO.copy()
 
     def traduzir_para_suico(self, termo_alemao: str) -> str:
-        """Busca o termo em alemão padrão e retorna a versão suíça correspondente."""
+        """Retorna uma comparação formatada para um termo conhecido."""
         termo_limpo = termo_alemao.strip()
-        
-        if termo_limpo in self.dicionario:
-            info = self.dicionario[termo_limpo]
+
+        if not termo_limpo:
+            raise ValueError("O termo não pode estar vazio.")
+
+        info = self.dicionario.get(termo_limpo)
+        if info is None:
             return (
-                f"🇩🇪 Alemão Padrão: {termo_limpo}\n"
-                f"🇨🇭 Suíço-Alemão: {info['suico']}\n"
-                f"📖 Significado/Contexto: {info['uso']}"
+                f"O termo '{termo_limpo}' não foi encontrado no banco "
+                "de exemplos."
             )
-        else:
-            return f"⚠️ O termo '{termo_alemao}' não foi encontrado no banco de dados do dialeto."
 
-def main():
-    print("=" * 60)
-    print(" 🏔️ SWISS GERMAN LAB: DIALETO E CULTURA SUÍÇA 🇨🇭")
-    print("=" * 60)
+        return (
+            f"Alemão Padrão: {termo_limpo}\n"
+            f"Suíço-Alemão: {info['suico']}\n"
+            f"Contexto: {info['uso']}"
+        )
 
+
+def main() -> None:
+    """Executa uma demonstração do comparador."""
     comparador = ComparadorDialetoSuico()
-
-    # Testando termos comuns
     termos_teste = ["Guten Tag", "Kartoffel", "Mädchen", "Samstag"]
+
+    print("=" * 60)
+    print("SWISS GERMAN LAB")
+    print("=" * 60)
 
     for termo in termos_teste:
         print(f"\nConsultando: '{termo}'")
         print(comparador.traduzir_para_suico(termo))
         print("-" * 40)
 
-    print("=" * 60)
 
 if __name__ == "__main__":
     main()
-  Add Swiss German vocabulary comparator script
